@@ -17,14 +17,15 @@ pipeline {
                 echo 'Test Step: We run testing tool like pytest here'
 
                 # TODO fill out the path to conda here
-                VENV_PATH="/home/qianxik/snap/snapd-desktop-integration/178/Desktop/mlip"
-                source $VENV_PATH/Scripts/activate
+                CONDA_PATH="/home/qianxik/miniconda3" 
+                source $CONDA_PATH/etc/profile.d/conda.sh
+		conda activate mlip
 
                 # TODO Complete the command to run pytest
-		$VENV_PATH/Scripts/python -m pytest
+		python -m pytest --maxfail=1 --disable-warnings -v
                
 
-                echo 'pytest not runned'
+                echo 'pytest run successfully'
                 exit 1 #comment this line after implementing Jenkinsfile
                 '''
 
