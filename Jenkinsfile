@@ -20,7 +20,7 @@ pipeline {
                 source ./mlip/bin/activate
                 # TODO Complete the command to run pytest
 		
-		# pytest
+		pytest
                
 
                 echo 'pytest run successfully'
