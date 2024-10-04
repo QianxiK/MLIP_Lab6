@@ -17,11 +17,12 @@ pipeline {
                 echo 'Test Step: We run testing tool like pytest here'
 
                 # TODO fill out the path to conda here
-                VENV_PATH="/var/lib/jenkins/workspace/mliplab6-qianxi/mlip"
+                VENV_PATH="/home/qianxik/snap/snapd-desktop-integration/178/Desktop/mlip"
                 source $VENV_PATH/Scripts/activate
 
                 # TODO Complete the command to run pytest
-                $VENV_PATH/Scripts/python -m pytest
+		$VENV_PATH/Scripts/python -m pytest
+               
 
                 echo 'pytest not runned'
                 exit 1 #comment this line after implementing Jenkinsfile
