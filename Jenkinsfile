@@ -17,10 +17,7 @@ pipeline {
                 echo 'Test Step: We run testing tool like pytest here'
 
                 # TODO fill out the path to conda here
-                CONDA_PATH="/home/qianxik/miniconda3" 
-                source $CONDA_PATH/etc/profile.d/conda.sh
-		conda activate mlip
-
+                source ./mlip/bin/activate
                 # TODO Complete the command to run pytest
 		python -m pytest --maxfail=1 --disable-warnings -v
                
