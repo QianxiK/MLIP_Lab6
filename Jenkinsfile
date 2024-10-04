@@ -7,6 +7,18 @@ pipeline {
                 sh '''#!/bin/bash
                 echo 'In C or Java, we can compile our program in this step'
                 echo 'In Python, we can build our package here or skip this step'
+                
+		VENV_PATH="/var/lib/jenkins/workspace/mliplab6-qianxi/mlip"
+		
+		if [ ! -d "$VENV_PATH" ]; then
+                    python3 -m venv $VENV_PATH
+                fi
+
+           
+                source $VENV_PATH/bin/activate
+
+    
+                pip install pytest numpy pandas scikit-learn
                 '''
             }
         }
@@ -16,10 +28,11 @@ pipeline {
                 echo 'Test Step: We run testing tool like pytest here'
 
                 # TODO fill out the path to conda here
-                source ./mlip/bin/activate
+                VENV_PATH="/var/lib/jenkins/workspace/mliplab6-qianxi/mlip"
+                source $VENV_PATH/bin/activate
 
                 # TODO Complete the command to run pytest
-                pytest
+                $VENV_PATH/bin/python -m pytest
 
                 echo 'pytest not runned'
                 exit 1 #comment this line after implementing Jenkinsfile
