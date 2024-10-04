@@ -1,4 +1,4 @@
-pipeline {
+hpipeline {
     agent any
 
     stages {
@@ -19,6 +19,7 @@ pipeline {
                 # TODO fill out the path to conda here
                 source ./mlip/bin/activate
                 # TODO Complete the command to run pytest
+		echo $(pip list)
 		pytest
                
 
